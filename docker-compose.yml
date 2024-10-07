@@ -20,17 +20,17 @@ services:
     networks:
       - app_network
 
-#  mongodb:
-#    container_name: mongodb
-#    restart: always
-#    ports:
-#      - "27017:27017"
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: admin
-#      MONGO_INITDB_ROOT_PASSWORD: root
-#    image: "mongo:latest"
-#    networks:
-#      - app_network
+  mongodb:
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: root
+    image: "mongo:latest"
+    networks:
+      - app_network
 
 
 networks:
