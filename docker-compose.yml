@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - 8080:8000
+    networks:
+      - app_network
+
+  postgresql:
+    container_name: postgres
+    restart: always
+    ports:
+      - "5436:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=db
+    image: "postgres:14.3-alpine"
+    networks:
+      - app_network
+
+#  mongodb:
+#    container_name: mongodb
+#    restart: always
+#    ports:
+#      - "27017:27017"
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: admin
+#      MONGO_INITDB_ROOT_PASSWORD: root
+#    image: "mongo:latest"
+#    networks:
+#      - app_network
+
+
+networks:
+  app_network:
+    driver: bridge
